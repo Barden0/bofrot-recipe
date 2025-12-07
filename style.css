@@ -1,0 +1,166 @@
+/* =========================================
+   style.css
+========================================= */
+
+/* ---------- Global reset & base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fbf9f6;                       /* soft neutral */
+  color: #222;
+  line-height: 1.5;
+  margin: 20px;            
+}
+
+/* ---------- Simple centered container feel ---------- */
+body > header,
+body > section {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e7e2da;
+  margin-bottom: 18px;
+}
+
+/* ---------- Header ---------- */
+header {
+  text-align: center;
+  background: #fff6e8; /* gentle header tint */
+  border: 1px solid #f0dec1;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #b05e09;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #555;
+}
+
+/* ---------- Recipe details list ---------- */
+section:nth-of-type(1) ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+section:nth-of-type(1) ul li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+/* ---------- Image section (section 2) ---------- */
+/* center the image, respect the width/height in the HTML,
+   but make it responsive if smaller screens */
+section:nth-of-type(2) {
+  text-align: center; /* centers the <img> inside this section */
+  background: #fff;
+}
+
+section:nth-of-type(2) img {
+  display: inline-block;
+  max-width: 100%;   /* responsive */
+  height: auto;      /* keep aspect ratio */
+  border-radius: 8px;
+  border: 2px solid #f0d7b0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* small hover zoom */
+section:nth-of-type(2) img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+/* ---------- Ingredients + Instructions layout ---------- */
+/* Your HTML has Ingredients as section 3 and Instructions as section 4.
+   We'll make them sit side-by-side on wider screens without changing HTML. */
+@media (min-width: 760px) {
+  /* place section 3 and 4 next to each other */
+  section:nth-of-type(3),
+  section:nth-of-type(4) {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(50% - 12px); /* two columns with a small gap */
+    margin-right: 12px;
+  }
+
+  /* remove the extra right margin from the last of the pair */
+  section:nth-of-type(4) {
+    margin-right: 0;
+  }
+}
+
+/* On small screens, keep full width (default block behavior) */
+
+/* ---------- Ingredients styling (section 3) ---------- */
+section:nth-of-type(3) h2,
+section:nth-of-type(4) h2 {
+  color: #b05e09;
+  margin-bottom: 10px;
+}
+
+section:nth-of-type(3) ul {
+  padding-left: 18px;
+}
+
+/* ---------- Instructions styling (section 4) ---------- */
+section:nth-of-type(4) ol {
+  padding-left: 18px;
+}
+
+/* make list items easier to read */
+section ul li,
+section ol li {
+  margin-bottom: 8px;
+  font-size: 0.99rem;
+}
+
+/* ---------- Tips (section 5) styling ---------- */
+section:nth-of-type(5) p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* emphasize the <u> element if used */
+section:nth-of-type(5) u {
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Nutrition & Source (section 6) ---------- */
+section:nth-of-type(6) ul {
+  padding-left: 18px;
+}
+
+/* make links stand out but tasteful */
+a {
+  color: #b05e09;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Small accessibility & spacing tweaks ---------- */
+h2 {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 759px) {
+  body {
+    margin: 12px;
+  }
+  body > header,
+  body > section {
+    padding: 14px;
+  }
+}
